@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Controle PCP'),
+    'name' => env('APP_NAME', 'System PCP'),
 
     /*
     |--------------------------------------------------------------------------

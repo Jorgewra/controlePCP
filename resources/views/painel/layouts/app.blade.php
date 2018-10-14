@@ -41,6 +41,7 @@
           <a class="nav-link" href="/registerOp">
             <i class="fas fa-fw fa-project-diagram"></i>
             <span>Register OP</span>
+          </a>
         </li>
       </ul>
 
