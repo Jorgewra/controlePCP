@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+Route::get('/painel', function () {
+    return view('painel.index');
+});
+Route::get('/registerOp', function () {
+    return view('painel.registerOp');
+});
+Route::get('/re-password', function () {
+    return view('forgot-password');
+});
+Route::get('/register', function () {
+    return view('register');
 });
