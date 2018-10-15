@@ -7,5 +7,5 @@ Sistema para controle de PCP - Respansivel
 
 2 - composer install
 
-3 - php artisan key:generente
+3 - php artisan key:generate
 
