@@ -33,21 +33,30 @@
           <a href="/en"><img src="../img/en.png" width="32px" height="32px" styles="padding: 10px;margin-bottom: 25px;" alt="en"></a>
         </div>
         <br/>
-          <form>
+        @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+          @endif
+          <form action="/{{App::getLocale()}}/login" method="POST">
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="{{ $traducao['campoEmail']}}" required="required" autofocus="autofocus">
+                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="{{ $traducao['campoEmail']}}" required="required" autofocus="autofocus">
                 <label for="inputEmail">{{ $traducao['campoEmail']}}</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="{{ $traducao['campoSenha']}}" required="required">
+                <input type="password" id="inputPassword" nome="password" class="form-control" placeholder="{{ $traducao['campoSenha']}}" required="required">
                 <label for="inputPassword">{{ $traducao['campoSenha']}}</label>
               </div>
             </div>
-            
-            <a class="btn btn-primary btn-block" href="/{{App::getLocale()}}/painel">{{ $traducao['btEntar']}}</a>
+            @csrf
+            <input type="submit" class="btn btn-primary btn-block" value="{{ $traducao['btEntar']}}" href="/{{App::getLocale()}}/painel"></button>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="/{{App::getLocale()}}/register">{{ $traducao['linkRegistro']}}</a>

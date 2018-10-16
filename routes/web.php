@@ -11,13 +11,15 @@
 |
  */
 
-Route::get('/{lg?}', function ($lg = null) {
-    if ($lg != null) {
-        app()->setLocale($lg);
-    }
-    $traducao = trans('string.loginIndex');
-    return view('index', compact('traducao'));
+Route::get('/{lg?}', 'UserController@index');
+Route::post('/{lg}/login', 'UserController@auth');
+Route::get('/{lg}/re-password', 'UserController@repassword');
+Route::get('/{lg}/register', 'UserController@register');
+Route::group(['prefix' => 'pcp','middleware'=>'pcp'],function () {
+    Route::get('/{lg}/painel','HomeController@index');
 });
+/*
+
 Route::get('/{lg}/painel', function ($lg = null) {
     if ($lg != null) {
         app()->setLocale($lg);
@@ -32,6 +34,7 @@ Route::get('/{lg}/registerOp', function ($lg = null) {
     $traducao = trans('string.pageRegistro');
     return view('painel.registerOp', compact('traducao'));
 });
+
 Route::get('/{lg}/product', function ($lg = null) {
     if ($lg != null) {
         app()->setLocale($lg);
@@ -45,18 +48,5 @@ Route::get('/{lg}/process', function ($lg = null) {
     }
     $traducao = trans('string.pageRegistro');
     return view('painel.processo', compact('traducao'));
-});
-Route::get('/{lg}/re-password', function ($lg = null) {
-    if ($lg != null) {
-        app()->setLocale($lg);
-    }
-    $traducao = trans('string.pageRecuperarSenha');
-    return view('forgot-password', compact('traducao'));
-});
-Route::get('/{lg}/register', function ($lg = null) {
-    if ($lg != null) {
-        app()->setLocale($lg);
-    }
-    $traducao = trans('string.pageRegistro');
-    return view('register', compact('traducao'));
-});
+});*/
+
