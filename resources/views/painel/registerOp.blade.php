@@ -11,13 +11,19 @@
           <form>
             <div class="form-group">
               <div class="form-row">
-                <div class="col-md-6">
+              <div class="col-md-4">
+                  <div class="form-label-group">
+                    <input type="text" id="op" class="form-control" placeholder="Código do Produto" required="required" autofocus="autofocus">
+                    <label for="op">Código do Produto</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
                   <div class="form-label-group">
                     <input type="text" id="op" class="form-control" placeholder="N. OP" required="required" autofocus="autofocus">
                     <label for="op">N. OP</label>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-label-group">
                     <input type="number" id="qtd" class="form-control" placeholder="Quantidade" required="required">
                     <label for="qtd">Quantidade</label>

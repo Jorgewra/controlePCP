@@ -18,7 +18,7 @@
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="../css/sb-admin.css" rel="stylesheet">
 
   </head>
 
@@ -26,24 +26,28 @@
 
     <div class="container">
       <div class="card card-login mx-auto mt-5">
-        <div class="card-header">Reset Password</div>
+        <div class="card-header">{{ $traducao['titulo']}}</div>
         <div class="card-body">
           <div class="text-center mb-4">
-            <h4>Forgot your password?</h4>
-            <p>Enter your email address and we will send you instructions on how to reset your password.</p>
+            <h4>{{ $traducao['mensagemInfo']}}</h4>
+            <p>{{ $traducao['mensagemInstrucao']}}</p>
           </div>
           <form>
             <div class="form-group">
+             <div class="form-row">
+                <div class="col-md-12">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Enter email address" required="required" autofocus="autofocus">
-                <label for="inputEmail">Enter email address</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="{{ $traducao['campoEmail']}}" required="required" autofocus="autofocus">
+                <label for="inputEmail">{{ $traducao['campoEmail']}}</label>
+              </div>
+              </div>
               </div>
             </div>
-            <a class="btn btn-primary btn-block" href="/">Reset Password</a>
+            <a class="btn btn-primary btn-block" href="/">{{ $traducao['btEnviar']}}</a>
           </form>
           <div class="text-center">
-            <a class="d-block small mt-3" href="/register">Register an Account</a>
-            <a class="d-block small" href="/">Login Page</a>
+            <a class="d-block small mt-3" href="/{{App::getLocale()}}/register">{{ $traducao['linkRegistro']}}</a>
+            <a class="d-block small" href="/{{App::getLocale()}}">{{ $traducao['linkLogin']}}</a>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@
     <meta name="description" content="System maneger PCP">
     <meta name="author" content="Jorge William Rodrigues">
 
-    <title>system PCP - Login</title>
+    <title>System PCP - Login</title>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
               </div>
             </div>
             
-            <a class="btn btn-primary btn-block" href="/pt/painel">{{ $traducao['btEntar']}}</a>
+            <a class="btn btn-primary btn-block" href="/{{App::getLocale()}}/painel">{{ $traducao['btEntar']}}</a>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="/{{App::getLocale()}}/register">{{ $traducao['linkRegistro']}}</a>
