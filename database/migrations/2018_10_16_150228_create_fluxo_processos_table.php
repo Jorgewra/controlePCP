@@ -19,10 +19,12 @@ class CreateFluxoProcessosTable extends Migration
             $table->string('name');            
             $table->string('description')->nullable();
             $table->integer('processo_id')->unsigned()->index();
+            $table->integer('users_id')->unsigned()->index();
             $table->integer('status');
         });
         Schema::table('fluxo_processos', function (Blueprint $table) {
             $table->foreign('processo_id')->references('id')->on('processos')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

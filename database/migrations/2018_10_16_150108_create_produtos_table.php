@@ -16,11 +16,15 @@ class CreateProdutosTable extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('code')->unique()->index();
+            $table->string('code',20)->unique()->index();
             $table->string('name');            
             $table->string('description')->nullable();
             $table->integer('status');
+            $table->integer('users_id')->unsigned()->index();
 
+        });
+        Schema::table('produtos', function (Blueprint $table) {
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

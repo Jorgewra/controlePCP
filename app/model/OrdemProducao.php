@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrdemProducao extends Model
 {
-    protected $fillable = ['code','description','quantity','dateBegin','dateEnd','priority','status','produto_id']; 
+    protected $fillable = ['code','description','quantity','dateBegin','dateEnd','priority','status','produto_id','users_id']; 
     public function getProduto(){
         return $this->hasOne('App\model\Produto','id','produto_id');
     }

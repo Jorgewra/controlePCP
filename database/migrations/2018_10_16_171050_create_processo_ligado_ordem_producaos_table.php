@@ -20,10 +20,14 @@ class CreateProcessoLigadoOrdemProducaosTable extends Migration
             $table->string('flow');
             $table->integer('ordem_producaos_id')->unsigned()->index();
             $table->integer('processos_id')->unsigned()->index();
+            $table->integer('users_id')->unsigned()->index();
+
         });
+       
         Schema::table('processo_ligado_ordem_producaos', function (Blueprint $table) {
             $table->foreign('processos_id')->references('id')->on('processos')->onDelete('cascade');
             $table->foreign('ordem_producaos_id')->references('id')->on('ordem_producaos')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
