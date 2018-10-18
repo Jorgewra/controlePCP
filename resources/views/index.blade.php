@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+ <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="{{ config('app.locale') }}"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="{{ config('app.locale') }}"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9" lang="{{ config('app.locale') }}"> <![endif]-->
+    <!--[if gt IE 8]><!--> 
+<html lang="{{ config('app.locale') }}">
 
   <head>
 
@@ -51,12 +55,12 @@
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="password" id="inputPassword" nome="password" class="form-control" placeholder="{{ $traducao['campoSenha']}}" required="required">
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="{{ $traducao['campoSenha']}}" required="required">
                 <label for="inputPassword">{{ $traducao['campoSenha']}}</label>
               </div>
             </div>
             @csrf
-            <input type="submit" class="btn btn-primary btn-block" value="{{ $traducao['btEntar']}}" href="/{{App::getLocale()}}/painel"></button>
+            <input type="submit" id="submit" class="btn btn-primary btn-block" value="{{ $traducao['btEntar']}}" href="/{{App::getLocale()}}/painel"></button>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="/{{App::getLocale()}}/register">{{ $traducao['linkRegistro']}}</a>
@@ -68,10 +72,10 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
+    
+  
   </body>
 
 </html>

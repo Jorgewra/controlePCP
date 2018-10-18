@@ -12,11 +12,15 @@
  */
 
 Route::get('/{lg?}', 'UserController@index');
-Route::post('/{lg}/login', 'UserController@auth');
+Route::post('/{lg}/login', 'UserController@auths');
+Route::post('/{lg}/new-user', 'UserController@newUser');
+Route::post('/{lg}/recoverPassword', 'UserController@recoverPassword');
 Route::get('/{lg}/re-password', 'UserController@repassword');
 Route::get('/{lg}/register', 'UserController@register');
-Route::group(['prefix' => 'pcp','middleware'=>'pcp'],function () {
+Route::group(['prefix' => 'pcp','middleware'=>'auth'],function () {
     Route::get('/{lg}/painel','HomeController@index');
+    Route::get('/{lg}/product','ProdutoController@index');
+    Route::get('/{lg}/new-product','ProdutoController@formCad');
 });
 /*
 

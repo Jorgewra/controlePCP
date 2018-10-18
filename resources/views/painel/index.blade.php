@@ -9,33 +9,33 @@
  <div class="card mb-3">
     <div class="card-header">
           <i class="fas fa-table"></i>
-            Lista de Ops</div>
+          {{ $traducao['tituloInicio']}}</div>
           <div class="card-body">
           <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>N. Op</th>
-                        <th>Descrição</th>
-                        <th>Data</th>
-                        <th>Total Peças</th>
-                        <th>Processo</th>
-                        <th>Status</th>
-                        <th>prioridade</th>
-                        <th>Detalhes</th>
+                    <th>{{ $traducao['tabOp1']}}</th>
+                        <th>{{ $traducao['tabOp2']}}</th>
+                        <th>{{ $traducao['tabOp3']}}</th>
+                        <th>{{ $traducao['tabOp4']}}</th>
+                        <th>{{ $traducao['tabOp5']}}o</th>
+                        <th>{{ $traducao['tabOp6']}}</th>
+                        <th>{{ $traducao['tabOp7']}}</th>
+                        <th>{{ $traducao['tabOp8']}}</th>
                       </tr>
                     </thead>
                     <tfoot>
-                      <tr>
-                        <th>N. Op</th>
-                        <th>Descrição</th>
-                        <th>Data</th>
-                        <th>Total Peças</th>
-                        <th>Processo</th>
-                        <th>Status</th>
-                        <th>prioridade</th>
-                        <th>Detalhes</th>
-                      </tr>
+                        <tr>
+                            <th>{{ $traducao['tabOp1']}}</th>
+                                <th>{{ $traducao['tabOp2']}}</th>
+                                <th>{{ $traducao['tabOp3']}}</th>
+                                <th>{{ $traducao['tabOp4']}}</th>
+                                <th>{{ $traducao['tabOp5']}}o</th>
+                                <th>{{ $traducao['tabOp6']}}</th>
+                                <th>{{ $traducao['tabOp7']}}</th>
+                                <th>{{ $traducao['tabOp8']}}</th>
+                              </tr>
                     </tfoot>
                     <tbody>
                       <tr>
@@ -48,17 +48,17 @@
                         <td>Inicial</td>
                         <td>
                           <select class="form-control" id="exampleFormControlSelect2">
-                            <option>Normal</option>
-                            <option>Alta</option>
-                            <option>Média</option>
+                              @foreach ($traducao['status'] as $st)
+                                <option value="{{$st}}" >{{$st}}</option>
+                              @endforeach
                           </select>
                         </td>
-                        <td><button type="button" class="btn btn-primary">Editar</button></td>
+                        <td><button type="button" class="btn btn-primary">{{ $traducao['btDetail']}}</button></td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
-    <div class="card-footer small text-muted">Ultomas atulizações at 11:59 PM</div>
+    <div class="card-footer small text-muted">{{ $traducao['footOP']}} 11:59 PM</div>
   </div>
 @endsection

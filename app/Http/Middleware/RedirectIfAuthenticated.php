@@ -17,8 +17,8 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            redirect()->action('UserController@index');
+        if (!Auth::guard('pcp')->check()) {
+            return redirect()->action('UserController@index');
         }
 
         return $next($request);

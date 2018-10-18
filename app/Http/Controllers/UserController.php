@@ -1,18 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Validator;
+use Mail;
+use URL;
 
 class UserController extends Controller
 {
+    private $users;
+    public function __construct(User $users) {
+        $this->users = $users;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */   
 
     public function index($lg = null)
     {
@@ -45,11 +52,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function auth(Request $request,$lg = null)
+    public function auths(Request $request,$lg = null)
     {
         $validate = validator($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|min:6']
+            'email' => 'required|email|string|max:45',
+            'password' => 'required|string|max:45|min:6']
         );
         if ($validate->fails()) {
             return back()
@@ -58,67 +65,82 @@ class UserController extends Controller
         }
         $credentical = ['email' => $request->get('email'), 'password' => $request->get('password')];
         if (auth()->guard('pcp')->attempt($credentical)) {
-            return redirect('/'.$lg.'/painel');
-        } else {
+            return redirect('/pcp/'.$lg.'/painel');
+        } else {            
             return back()
                 ->withErrors(['errors' => 'Acesso inválidos!'])
                 ->withInput();
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function newUser(Request $request,$lg = null){
+        $validate = validator($request->all(), [
+            'name' => 'required|string|max:45',
+            'lastName'=> 'required|string|max:45',
+            'email' => 'required|email|string|max:45|unique:users,email',
+            'password' => 'required|string|min:6|confirmed']
+        );
+        if ($validate->fails()) {
+            return back()
+                ->withErrors($validate)
+                ->withInput();
+        }
+        
+        try{
+             //Recebe os valores dos campos
+            $this->users->fill($request->all());
+            $this->users->password = Hash::make($this->users->password);
+            $this->users->nivel = 0;
+            $this->users->status = 0;
+            $this->users->save();
+        }catch(\Exception $e){
+            return back()
+            ->withErrors(['mensagem' => ' Sorry something went worng'])
+           // ->withErrors(['mensagem' => $e->getMessage()])
+            ->withInput();
+        }
+        return back()->with('success', 'Cadastro realizado com sucesso!');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function recoverPassword(Request $request,$lg = null){
+        $validate = validator($request->all(), [
+            'email' => 'required|email',
+        ]);
+        if ($validate->fails()) {
+            return back()
+            ->withErrors($validate)
+            ->withInput();
+        }
+        try{
+            $this->users = User::where('email', $request->get('email'))->first();
+            if($this->users){
+                $this->users->email_verified_at = new \DateTime();
+                $senha_new  = str_random(6);  
+                $this->users->password = Hash::make($senha_new);              
+                
+                $token_relembre  = str_random(12);  
+                $this->remember_token = Hash::make($token_relembre);  
+                $this->users->update();
+                $mens = 'Sua nova senha é : '.$senha_new;
+                $mensagem = ['titulo' => 'Resetar sua senha',
+                'mensagem' => $mens
+                ];
+                Mail::send(['html' => 'painel.email_template'], $mensagem, function($message) {                   
+                    $message->from($this->users->email, $this->users->name);
+                    $message->to($this->users->email);
+                    $message->subject("Nova senha - System PCP");
+                });
+                return back()->with('success', 'Foi enviado um e-mail com a nova senha ! = '.$senha_new);
+            }else{
+                return back()
+                ->withErrors(['mensagem' => ' E-mail não registrado!'])
+                ->withInput();
+            }
+        }catch(\Exception $e){
+                return back()
+                ->withErrors(['mensagem' => ' Sorry something went worng : '])
+                ->withInput();
+        }
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }

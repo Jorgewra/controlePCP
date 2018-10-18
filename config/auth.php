@@ -71,8 +71,12 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\model\User::class,
         ],
+        /*'pcp' => [
+            'driver' => 'eloquent',
+            'model' => App\modal\Usuario::class,
+        ],*/
 
         // 'users' => [
         //     'driver' => 'database',

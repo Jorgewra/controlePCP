@@ -28,18 +28,19 @@
       <div class="card card-register mx-auto mt-5">
         <div class="card-header">{{ $traducao['titulo']}}</div>
         <div class="card-body">
-          <form>
+          @include('mensager_it')           
+          <form action="/{{App::getLocale()}}/new-user" method="POST">
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="firstName" class="form-control" placeholder="{{ $traducao['campoNome']}}" required="required" autofocus="autofocus">
+                    <input type="text" id="firstName" value="{{old('name')}}" name="name" class="form-control" placeholder="{{ $traducao['campoNome']}}" required="required" autofocus="autofocus">
                     <label for="firstName">{{ $traducao['campoNome']}}</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="lastName" class="form-control" placeholder="{{ $traducao['campoSobreNome']}}" required="required">
+                    <input type="text" id="lastName" value="{{old('lastName')}}" name="lastName" class="form-control" placeholder="{{ $traducao['campoSobreNome']}}" required="required">
                     <label for="lastName">{{ $traducao['campoSobreNome']}}</label>
                   </div>
                 </div>
@@ -47,7 +48,7 @@
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="{{ $traducao['campoEmail']}}" required="required">
+                <input type="email" id="inputEmail" value="{{old('email')}}" name="email" class="form-control" placeholder="{{ $traducao['campoEmail']}}" required="required">
                 <label for="inputEmail">{{ $traducao['campoEmail']}}</label>
               </div>
             </div>
@@ -55,19 +56,20 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="{{ $traducao['campoSenha']}}" required="required">
+                    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="{{ $traducao['campoSenha']}}" required="required">
                     <label for="inputPassword">{{ $traducao['campoSenha']}}</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="{{ $traducao['campoRepitirSenha']}}" required="required">
+                    <input type="password" id="confirmPassword" name="password_confirmation" class="form-control" placeholder="{{ $traducao['campoRepitirSenha']}}" required="required">
                     <label for="confirmPassword">{{ $traducao['campoRepitirSenha']}}</label>
                   </div>
                 </div>
               </div>
             </div>
-            <a class="btn btn-primary btn-block" href="/">{{ $traducao['btSalvar']}}</a>
+            @csrf
+            <input type="submit" value="{{ $traducao['btSalvar']}}" class="btn btn-primary btn-block" />
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="/{{App::getLocale()}}">{{ $traducao['linkLogin']}}</a>

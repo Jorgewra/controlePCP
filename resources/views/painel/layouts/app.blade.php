@@ -32,27 +32,27 @@
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="/{{App::getLocale()}}/painel">
+          <a class="nav-link" href="/pcp/{{App::getLocale()}}/painel">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+            <span>{{ $traducao['menu1']}}</span>
           </a>
         </li>        
         <li class="nav-item">
-          <a class="nav-link" href="/{{App::getLocale()}}/registerOp">
+          <a class="nav-link" href="/pcp/{{App::getLocale()}}/registerOp">
             <i class="fas fa-fw fa-project-diagram"></i>
-            <span>Register OP</span>
+            <span>{{ $traducao['menu2']}}</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/{{App::getLocale()}}/product">
+          <a class="nav-link" href="/pcp/{{App::getLocale()}}/product">
             <i class="fas fa-fw fa-building"></i>
-            <span>Produtos</span>
+            <span>{{ $traducao['menu3']}}</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/{{App::getLocale()}}/process">            
+          <a class="nav-link" href="/pcp/{{App::getLocale()}}/process">            
             <i class="fas fa-fw fa-sitemap"></i>
-            <span>Processos</span>
+            <span>{{ $traducao['menu4']}}</span>
           </a>
         </li>
       </ul>
@@ -74,8 +74,8 @@
       </div>
      
       </div>
-      <!-- /.content-wrapper -->
-        <!-- Bootstrap core JavaScript-->
+    <!-- /.content-wrapper -->
+    <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -86,7 +86,8 @@
     <script src="../../vendor/chart.js/Chart.min.js"></script>
     <script src="../../vendor/datatables/jquery.dataTables.js"></script>
     <script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
-
+    <!-- Core plugin JavaScript-->
+    <script src="../../vendor/jquery/jQuery/jQuery-2.1.3.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="../../js/sb-admin.min.js"></script>
     </body>
