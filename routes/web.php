@@ -20,7 +20,8 @@ Route::get('/{lg}/register', 'UserController@register');
 Route::group(['prefix' => 'pcp','middleware'=>'auth'],function () {
     Route::get('/{lg}/painel','HomeController@index');
     Route::get('/{lg}/product','ProdutoController@index');
-    Route::get('/{lg}/new-product','ProdutoController@formCad');
+    Route::get('/{lg}/new-product/{id?}','ProdutoController@formCad');
+    Route::post('/{lg}/save-product','ProdutoController@store');
 });
 /*
 

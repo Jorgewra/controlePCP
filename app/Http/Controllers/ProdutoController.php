@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\model\Produto;
+use Illuminate\Support\Facades\Auth;
 
 class ProdutoController extends Controller
 {
@@ -19,17 +20,39 @@ class ProdutoController extends Controller
         $traducao = trans('string.pageHome');
         return view('painel.produto', compact('traducao'), compact('lista'));
     }
-    public function formCad($lg = null){
+    public function sheach($lg = null,Request $request){
         if ($lg != null) {
             app()->setLocale($lg);
         }
+        $q = $request->all();
+        $lista = Produto::where([['code', 'like', '%' . $q['q'] . '%'],['name', 'like', '%' . $q['q'] . '%']])->paginate(50);
         $traducao = trans('string.pageHome');
-        return view('painel.cadProduto', compact('traducao'));
+        return view('painel.produto', compact('traducao'), compact('lista'));
+    }
+    public function formCad($lg = null,$id=null){
+        if ($lg != null) {
+            app()->setLocale($lg);
+        }
+        $produto = new Produto;
+        if($id!=null){
+            $produto = Produto::find($id);
+            if($produto ==null){
+                return back()->withInput();
+            }
+        }
+        $traducao = trans('string.pageHome');
+        return view('painel.cadProduto')->with(compact('produto', 'traducao'));
     }
     public function store(Request $request,$lg = null){
         try{
+            $value = $request->all();
+            $user = Auth::guard('pcp')->user();
+            if($value['id']){
+                $this->produto = Produto::find($value['id']);
+            }
             $this->produto->fill($request->all());
-            $this->users_id = auth()->guard('pcp')->user()->id;
+            $this->produto->users_id = $user->id;           
+            
             $this->produto->save();
         }catch(\Exception $e){
             return back()
@@ -37,7 +60,7 @@ class ProdutoController extends Controller
             ->withErrors(['mensagem' => $e->getMessage()])
             ->withInput();
         }
-        return back()->with('success', 'Cadastro realizado com sucesso!');
+        return back()->with('success', 'Salvo com sucesso!');
 
     }
 

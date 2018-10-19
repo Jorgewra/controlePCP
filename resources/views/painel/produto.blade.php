@@ -7,7 +7,7 @@
 @section('content')
 <div class="card mb-3">
     <div class="card-header">
-          <i class="fas fa-table"></i>
+          <i class="fas fa-building"></i>
           {{ $traducao['tituloProduto']}}</div>
             <td><a href="/pcp/{{App::getLocale()}}/new-product" class="btn btn-primary">{{ $traducao['btCriar']}} </a></td>
           <div class="card-body">
@@ -34,11 +34,11 @@
                     <tbody>
                         @foreach ($lista as $p)
                         <tr>
-                            <td>123-5698PO</td>
-                            <td>Customer Support</td>
-                            <td>01/02/2018</td>
+                            <td>{{$p->code}}</td>
+                            <td>{{$p->name}}</td>
+                            <td>{{$p->description}}</td>
                             <td><button type="button" class="btn btn-primary">{{$traducao['btGerarOp']}}</button></td>
-                            <td><button type="button" class="btn btn-primary">{{$traducao['btDetail']}}</button></td>
+                            <td><a href="/pcp/{{App::getLocale()}}/new-product/{{$p->id}}" class="btn btn-primary">{{$traducao['btDetail']}}</a></td>
                           </tr>
                         @endforeach                            
                       

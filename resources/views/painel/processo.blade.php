@@ -7,7 +7,7 @@
 @section('content')
 <div class="card mb-3">
     <div class="card-header">
-          <i class="fas fa-table"></i>
+          <i class="fas fa-sitemap"></i>
             Lista de Processos</div>
             <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-process">Criar Novo</button></td>
           <div class="card-body">
