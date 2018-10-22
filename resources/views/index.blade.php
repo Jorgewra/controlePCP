@@ -33,7 +33,7 @@
         <div class="card-header">{{ $traducao['tituloLogin']}}</div>
         <div class="card-body">
         <div class="text-center">
-          <a href="/pt-BR"><img src="../img/pt.png" width="32px" height="32px" styles="padding: 10px;margin-bottom: 25px;" alt="pt_BR"></a>
+          <a href="/pt"><img src="../img/pt.png" width="32px" height="32px" styles="padding: 10px;margin-bottom: 25px;" alt="pt_BR"></a>
           <a href="/en"><img src="../img/en.png" width="32px" height="32px" styles="padding: 10px;margin-bottom: 25px;" alt="en"></a>
         </div>
         <br/>
