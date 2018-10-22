@@ -22,36 +22,9 @@ Route::group(['prefix' => 'pcp','middleware'=>'auth'],function () {
     Route::get('/{lg}/product','ProdutoController@index');
     Route::get('/{lg}/new-product/{id?}','ProdutoController@formCad');
     Route::post('/{lg}/save-product','ProdutoController@store');
+    Route::get('/{lg}/process','ProcessoController@index');
+    Route::get('/{lg}/new-process/{id?}','ProcessoController@formCad');
+    Route::post('/{lg}/save-process','ProcessoController@store');
+    Route::get('/{lg}/registerOp','OrdemProducaoController@index');
 });
-/*
-
-Route::get('/{lg}/painel', function ($lg = null) {
-    if ($lg != null) {
-        app()->setLocale($lg);
-    }
-    $traducao = trans('string.pageHome');
-    return view('painel.index', compact('traducao'));
-});
-Route::get('/{lg}/registerOp', function ($lg = null) {
-    if ($lg != null) {
-        app()->setLocale($lg);
-    }
-    $traducao = trans('string.pageRegistro');
-    return view('painel.registerOp', compact('traducao'));
-});
-
-Route::get('/{lg}/product', function ($lg = null) {
-    if ($lg != null) {
-        app()->setLocale($lg);
-    }
-    $traducao = trans('string.pageRegistro');
-    return view('painel.produto', compact('traducao'));
-});
-Route::get('/{lg}/process', function ($lg = null) {
-    if ($lg != null) {
-        app()->setLocale($lg);
-    }
-    $traducao = trans('string.pageRegistro');
-    return view('painel.processo', compact('traducao'));
-});*/
 

@@ -22,6 +22,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{url('/css/sb-admin.css')}}" rel="stylesheet">
+    <script src="{{url('/js/jquery-1.11.3.min.js')}}"></script>
+    <script src="{{url('/js/jquery.mask.min.js')}}"></script>
 
   </head>
   <body id="page-top">
@@ -31,25 +33,25 @@
         <div id="wrapper">
          <!-- Sidebar -->
          <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
+         <li class="nav-item {{old('index')}}">
           <a class="nav-link" href="/pcp/{{App::getLocale()}}/painel">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>{{ $traducao['menu1']}}</span>
           </a>
         </li>        
-        <li class="nav-item">
+        <li class="nav-item {{old('register')}}">
           <a class="nav-link" href="/pcp/{{App::getLocale()}}/registerOp">
             <i class="fas fa-fw fa-project-diagram"></i>
             <span>{{ $traducao['menu2']}}</span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{old('product')}}">
           <a class="nav-link" href="/pcp/{{App::getLocale()}}/product">
             <i class="fas fa-fw fa-building"></i>
             <span>{{ $traducao['menu3']}}</span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{old('process')}}">
           <a class="nav-link" href="/pcp/{{App::getLocale()}}/process">            
             <i class="fas fa-fw fa-sitemap"></i>
             <span>{{ $traducao['menu4']}}</span>
@@ -86,9 +88,9 @@
     <script src="{{url('/vendor/chart.js/Chart.min.js')}}"></script>
     <script src="{{url('/vendor/datatables/jquery.dataTables.js')}}"></script>
     <script src="{{url('/vendor/datatables/dataTables.bootstrap4.js')}}"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="{{url('/vendor/jquery/jQuery/jQuery-2.1.3.min.js')}}"></script>
     <!-- Custom scripts for all pages-->
     <script src="{{url('/js/sb-admin.min.js')}}"></script>
+    <script src="{{url('/js/jquery.mask.min.js')}}"></script>
+
     </body>
 </html>

@@ -19,7 +19,7 @@
                         <th>{{ $traducao['tabOp2']}}</th>
                         <th>{{ $traducao['tabOp3']}}</th>
                         <th>{{ $traducao['tabOp4']}}</th>
-                        <th>{{ $traducao['tabOp5']}}o</th>
+                        <th>{{ $traducao['tabOp5']}}</th>
                         <th>{{ $traducao['tabOp6']}}</th>
                         <th>{{ $traducao['tabOp7']}}</th>
                         <th>{{ $traducao['tabOp8']}}</th>
@@ -48,8 +48,8 @@
                         <td>Inicial</td>
                         <td>
                           <select class="form-control" id="exampleFormControlSelect2">
-                              @foreach ($traducao['status'] as $st)
-                                <option value="{{$st}}" >{{$st}}</option>
+                              @foreach ($traducao['prioridade'] as $st)
+                                <option value="{{ $st['key']}}" >{{$st['st']}}</option>
                               @endforeach
                           </select>
                         </td>

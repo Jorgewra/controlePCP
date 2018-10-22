@@ -18,6 +18,7 @@ class ProdutoController extends Controller
         }
         $lista = Produto::paginate(50);
         $traducao = trans('string.pageHome');
+        
         return view('painel.produto', compact('traducao'), compact('lista'));
     }
     public function sheach($lg = null,Request $request){

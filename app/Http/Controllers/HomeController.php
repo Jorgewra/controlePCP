@@ -19,7 +19,8 @@ class HomeController extends Controller
                 app()->setLocale($lg);
             }
             $traducao = trans('string.pageHome');
-            return view('painel.index', compact('traducao'));
+            $index = 'active';
+            return view('painel.index', compact('traducao','index'));
         }else{
             return redirect()->action('UserController@index');
         }

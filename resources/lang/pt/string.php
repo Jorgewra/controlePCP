@@ -19,7 +19,7 @@
                 'linkLogin'=> 'Voltar ao Login',
                 'linkRecuperarSenha'=>'Recuperar Senha'
              ],
-             'pageRecuperarSenha' =>[
+             'pageRecuperarSenha' =>[ 
                 'titulo' => 'Recuperar Senha!',
                 'mensagemInfo' => 'Você esqueceu sua senha?',
                 'mensagemInstrucao' => 'Informe seu endereço de e-mail de acesso e enviaremos uma nova senha!',
@@ -45,11 +45,11 @@
                 'tabOp6'=>'Status',
                 'tabOp7'=>'Prioridade',
                 'tabOp8'=>'Detalhes',
-                'footOP'=>'Ultimas atulizações ',    
+                'footOP'=>'Ultimas atualizações ',    
                 'btDetail'=>'Editar',    
                 'btCriar'=>'Criar Novo',
                 'btSalvar'=>'Salvar',
-                'status'=>['Normal','Alta','Média'],
+                'prioridade'=>[['st'=>'Normal','key'=>'1'],['st'=>'Média','key'=>'2'],['st'=>'Alta','key'=>'3']],
                 'tituloProduto'=>'Lista de Produtos',
                 'tabProduto'=>['Código','Nome','Data Criação'],
                 'btGerarOp'=>'Gerar OP',
@@ -58,6 +58,24 @@
                 'campo1'=>'Código do Produto',
                 'campo2'=>'Nome do Produto',
                 'campo3'=>'Descricão do Produto',
+                'tituloProcesso'=>'Lista Processo',
+                'tabProcesso'=>['Código','Nome','Data Criação','status'],
+                'tituloCadastroProcesso' =>'Cadastro de processo',
+                'campoProcesso'=>'Código do processo',
+                'campoNomeProcesso'=>'Nome do processo',
+                'campoDecricaoProcesso'=>'Descrição do processo',
+                'btAddFluxo'=>'Adicionar fluxo',
+                'labelFluxoProcesso'=>'Fluxo do processo',
+                'btRemover'=>'Remover',
+                'tituloRegistroOp'=>'Registro de Ordem de Produção',
+                'campoNumeroOp'=>'N. Op',
+                'campoQuantidadeOp'=>'Quantidade',
+                'campoDataInicioOp'=>'Data Inicio',
+                'campoDataFimOp'=>'Data Fim',
+                'campoDescricaoOp'=>'Descrição',
+                'campoPrioridadeOp'=>'Prioridade',
+                'campoProcessoOp'=>'Processo'
+
 
                 ]   
             ];
