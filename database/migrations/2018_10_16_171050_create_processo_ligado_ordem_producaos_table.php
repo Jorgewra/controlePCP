@@ -18,6 +18,7 @@ class CreateProcessoLigadoOrdemProducaosTable extends Migration
             $table->timestamps();
             $table->integer('status');
             $table->string('flow');
+            $table->integer('produced');
             $table->integer('ordem_producaos_id')->unsigned()->index();
             $table->integer('processos_id')->unsigned()->index();
             $table->integer('users_id')->unsigned()->index();

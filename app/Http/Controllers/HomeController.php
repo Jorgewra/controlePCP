@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\model\OrdemProducao;
+use App\model\Processo;
 
 class HomeController extends Controller
 {
@@ -18,78 +20,23 @@ class HomeController extends Controller
             if ($lg != null) {
                 app()->setLocale($lg);
             }
+            $lista = OrdemProducao::with('getProduto')->with('getProcessos')->paginate(50);            
             $traducao = trans('string.pageHome');
             $index = 'active';
-            return view('painel.index', compact('traducao','index'));
+            return view('painel.index', compact('traducao','index','lista'));
         }else{
             return redirect()->action('UserController@index');
         }
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function sheach($lg = null,Request $request){
+        if ($lg != null) {
+            app()->setLocale($lg);
+        }
+        $q = $request->all();        
+        $lista = OrdemProducao::where([['code', 'like', '%' .  $q['q'] . '%']])->with('getProduto')->with('getProcessos')->paginate(50);
+        $traducao = trans('string.pageHome');
+        return view('painel.index', compact('traducao','lista'));
     }
 }

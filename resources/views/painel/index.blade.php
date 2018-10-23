@@ -12,53 +12,50 @@
           {{ $traducao['tituloInicio']}}</div>
           <div class="card-body">
           <div class="table-responsive">
+              @if (@isset($lista))
+                {{ $lista->links() }}
+              @endif
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>{{ $traducao['tabOp1']}}</th>
-                        <th>{{ $traducao['tabOp2']}}</th>
-                        <th>{{ $traducao['tabOp3']}}</th>
-                        <th>{{ $traducao['tabOp4']}}</th>
-                        <th>{{ $traducao['tabOp5']}}</th>
-                        <th>{{ $traducao['tabOp6']}}</th>
-                        <th>{{ $traducao['tabOp7']}}</th>
-                        <th>{{ $traducao['tabOp8']}}</th>
-                      </tr>
-                    </thead>
+                      @foreach ($traducao['tabOP'] as $th)
+                        <th>{{$th}}</th>
+                      @endforeach  
+                      <th></th>
+                      <th></th>
+                  </tr>
+                </thead>
                     <tfoot>
                         <tr>
-                            <th>{{ $traducao['tabOp1']}}</th>
-                                <th>{{ $traducao['tabOp2']}}</th>
-                                <th>{{ $traducao['tabOp3']}}</th>
-                                <th>{{ $traducao['tabOp4']}}</th>
-                                <th>{{ $traducao['tabOp5']}}o</th>
-                                <th>{{ $traducao['tabOp6']}}</th>
-                                <th>{{ $traducao['tabOp7']}}</th>
-                                <th>{{ $traducao['tabOp8']}}</th>
-                              </tr>
+                            @foreach ($traducao['tabOP'] as $th)
+                            <th>{{$th}}</th>
+                            @endforeach  
+                            <th></th>
+                            <th></th>
+                        </tr>
                     </tfoot>
                     <tbody>
-                      <tr>
-                      <tr>
-                        <td>123-5698PO</td>
-                        <td>Customer Support</td>
-                        <td>01/02/2018 até 30/02/2018</td>
-                        <td>1020.00</td>
-                        <td>1 - Pintura</td>
-                        <td>Inicial</td>
-                        <td>
-                          <select class="form-control" id="exampleFormControlSelect2">
-                              @foreach ($traducao['prioridade'] as $st)
-                                <option value="{{ $st['key']}}" >{{$st['st']}}</option>
-                              @endforeach
-                          </select>
-                        </td>
-                        <td><button type="button" class="btn btn-primary">{{ $traducao['btDetail']}}</button></td>
-                      </tr>
+                          @foreach ($lista as $p)
+                          <tr>
+                              <td>{{$p->code}}</td>
+                              <td>{{$p->description}}</td>
+                              <td>{{$p->created_at}}</td>
+                              <td>{{$p->quantity}}</td>
+                              <td>{{$p->getProduto->name}}</td>
+                              <td>{{$p->getProcessos->getProcesso->name}}</td>
+                              <td>{{$traducao['status'][$p->status-1]['st']}}</td>
+                              <td>{{$traducao['prioridade'][$p->priority-1]['st']}}</td>
+                              <td><a href="/pcp/{{App::getLocale()}}/registerOp/{{$p->id}}" class="btn btn-primary">{{$traducao['btAtualizar']}}</a></td>
+                              <td><a href="/pcp/{{App::getLocale()}}/registerOp/{{$p->id}}" class="btn btn-primary">{{$traducao['btDetail']}}</a></td>
+                            </tr>
+                          @endforeach    
                     </tbody>
                   </table>
                 </div>
               </div>
+              @if (@isset($lista))
+                {{ $lista->links() }}
+              @endif
     <div class="card-footer small text-muted">{{ $traducao['footOP']}} 11:59 PM</div>
   </div>
 @endsection

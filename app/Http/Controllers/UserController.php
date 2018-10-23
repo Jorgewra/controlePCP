@@ -130,7 +130,7 @@ class UserController extends Controller
                     $message->to($this->users->email);
                     $message->subject("Nova senha - System PCP");
                 });
-                return back()->with('success', 'Foi enviado um e-mail com a nova senha ! = '.$senha_new);
+                return back()->with('success', 'Foi enviado um e-mail com a nova senha !');
             }else{
                 return back()
                 ->withErrors(['mensagem' => ' E-mail não registrado!'])

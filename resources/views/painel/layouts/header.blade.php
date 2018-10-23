@@ -6,11 +6,12 @@
         <i class="fas fa-bars"></i>
       </button>
       <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="/pcp/{{App::getLocale()}}/sheach" method="POST">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="{{ $traducao['headPesquisa']}}" aria-label="Search" aria-describedby="basic-addon2">
+          <input type="text" class="form-control" placeholder="{{ $traducao['headPesquisa']}}" name="q" aria-label="Search" aria-describedby="basic-addon2">
+          @csrf
           <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
+            <button class="btn btn-primary" type="submit">
               <i class="fas fa-search"></i>
             </button>
           </div>

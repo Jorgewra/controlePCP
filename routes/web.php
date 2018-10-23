@@ -25,6 +25,8 @@ Route::group(['prefix' => 'pcp','middleware'=>'auth'],function () {
     Route::get('/{lg}/process','ProcessoController@index');
     Route::get('/{lg}/new-process/{id?}','ProcessoController@formCad');
     Route::post('/{lg}/save-process','ProcessoController@store');
-    Route::get('/{lg}/registerOp','OrdemProducaoController@index');
+    Route::get('/{lg}/registerOp/{id?}','OrdemProducaoController@index');
+    Route::post('/{lg}/save-ordem','OrdemProducaoController@store');
+    Route::post('/{lg}/sheach','HomeController@sheach');
 });
 

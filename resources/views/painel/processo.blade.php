@@ -13,6 +13,9 @@
   <td><a href="/pcp/{{App::getLocale()}}/new-process/" class="btn btn-primary">{{ $traducao['btCriar']}}</a></td>
   <div class="card-body">
   <div class="table-responsive">
+    @if (@isset($lista))
+      {{ $lista->links() }}
+    @endif
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
       <thead>
         <tr>

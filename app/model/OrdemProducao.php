@@ -11,6 +11,6 @@ class OrdemProducao extends Model
         return $this->hasOne('App\model\Produto','id','produto_id');
     }
     public function getProcessos(){
-        return $this->hasOne('App\model\ProcessoLigadoOrdemProducao','ordem_producaos_id','id');
+        return $this->hasOne('App\model\ProcessoLigadoOrdemProducao','ordem_producaos_id','id')->with('getProcesso');
     }
 }
