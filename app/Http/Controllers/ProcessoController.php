@@ -41,7 +41,7 @@ class ProcessoController extends Controller
         try{
             $value = $request->all();           
             if($value['id']){
-                $this->processo = Processo::where('id', $$value['id'])->with('getFluxos')->first();
+                $this->processo = Processo::where('id', $value['id'])->with('getFluxos')->first();
             }            
             $this->processo->fill($request->all());
             $this->processo->save();

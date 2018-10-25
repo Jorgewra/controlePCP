@@ -19,6 +19,8 @@ Route::get('/{lg}/re-password', 'UserController@repassword');
 Route::get('/{lg}/register', 'UserController@register');
 Route::group(['prefix' => 'pcp','middleware'=>'auth'],function () {
     Route::get('/{lg}/painel','HomeController@index');
+    Route::get('/{lg}/logout','HomeController@logout');
+    
     Route::get('/{lg}/product','ProdutoController@index');
     Route::get('/{lg}/new-product/{id?}','ProdutoController@formCad');
     Route::post('/{lg}/save-product','ProdutoController@store');
@@ -27,6 +29,8 @@ Route::group(['prefix' => 'pcp','middleware'=>'auth'],function () {
     Route::post('/{lg}/save-process','ProcessoController@store');
     Route::get('/{lg}/registerOp/{id?}','OrdemProducaoController@index');
     Route::post('/{lg}/save-ordem','OrdemProducaoController@store');
+    Route::get('/{lg}/apontar-ordem/{id}','OrdemProducaoController@fromApont');
     Route::post('/{lg}/sheach','HomeController@sheach');
+    Route::post('/{lg}/lancar-ordem','OrdemProducaoController@lancar');
 });
 

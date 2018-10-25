@@ -91,6 +91,8 @@
     <!-- Custom scripts for all pages-->
     <script src="{{url('/js/sb-admin.min.js')}}"></script>
     <script src="{{url('/js/jquery.mask.min.js')}}"></script>
+    <!--
+    <script src="js/demo/datatables-demo.js"></script>-->
 
     </body>
 </html>

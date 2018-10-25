@@ -10,7 +10,7 @@
         <div class="card-body">
             @include('mensager_it')     
             <form action="/pcp/{{App::getLocale()}}/save-ordem" method="POST">
-              <input type="hidden" name="id" value="{{ $ordem->id or old('id') }}">
+              <input type="hidden" name="id" value="{{ $ordem->id == null ? old('id') : $ordem->id }}">
             <div class="form-group">
               <div class="form-row">
               <div class="col-md-4">

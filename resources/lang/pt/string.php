@@ -37,7 +37,7 @@
                 'headConfig' =>'Configurações',
                 'headSair' =>'Sair',
                 'tituloInicio'=>'Lista de Ordens de Produção (OP)',
-                'tabOP'=>['N. Op','Descrição','Data Criação','Total Peças','Produto','Processo','Status','prioridade'],
+                'tabOP'=>['N. Op','Descrição','Data Criação','Total Peças','Produzido(s)','Produto','Processo','Status','prioridade'],
                 'tabOp1'=>'N. Op',
                 'tabOp2'=>'Descrição',
                 'tabOp3'=>'Data',
@@ -77,7 +77,9 @@
                 'campoPrioridadeOp'=>'Prioridade',
                 'campoProcessoOp'=>'Processo',
                 'status'=>[['st'=>'Aguardando','key'=>'1'],['st'=>'Iniciado','key'=>'2'],['st'=>'Pausado','key'=>'3'],['st'=>'Finalizado','key'=>'4'],['st'=>'Cancelado','key'=>'5']],
-                'btAtualizar'=>'Atulizar',
+                'btAtualizar'=>'Apontar',
+                'qtdPrdud'=>'Quantidade produzido',
+                'tituloApontamentoOp'=>"Apontamento de Ordem de Produção"
                 ]   
             ];
         

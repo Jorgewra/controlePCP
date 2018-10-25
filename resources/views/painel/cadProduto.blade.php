@@ -13,7 +13,7 @@
     <div class="card-body">
         @include('mensager_it')     
         <form action="/pcp/{{App::getLocale()}}/save-product" method="POST">
-            <input type="hidden" name="id" value="{{ $produto->id or old('id') }}">
+          <input type="hidden" name="id" value="{{ $produto->id == null ? old('id') : $produto->id }}">
             <div class="form-group">
               <div class="form-row">
               <div class="col-md-6">

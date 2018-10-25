@@ -39,4 +39,8 @@ class HomeController extends Controller
         $traducao = trans('string.pageHome');
         return view('painel.index', compact('traducao','lista'));
     }
+    public function logout($lg = null){        
+        Auth::logout();
+        return redirect()->action('UserController@index');
+    }
 }

@@ -77,7 +77,7 @@
                 'campoPrioridadeOp'=>'Prioridade',
                 'campoProcessoOp'=>'Processo',
                 'status'=>[['st'=>'Aguardando','key'=>'1'],['st'=>'Iniciado','key'=>'2'],['st'=>'Pausado','key'=>'3'],['st'=>'Finalizado','key'=>'4'],['st'=>'Cancelado','key'=>'5']],
-                'btAtualizar'=>'Atulizar',
+                'btAtualizar'=>'Apontar',
                 ]   
             ];
         

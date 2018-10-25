@@ -27,7 +27,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">{{ $traducao['headConfig']}}</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">{{ $traducao['headSair']}}</a>
+            <a class="dropdown-item" href="/pcp/{{App::getLocale()}}/logout">{{ $traducao['headSair']}}</a>
           </div>
         </li>
       </ul>

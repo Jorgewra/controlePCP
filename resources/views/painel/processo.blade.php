@@ -47,7 +47,7 @@
     </table>                
   </div>
   </div>
-    <div class="card-footer small text-muted">{{$traducao['footOP']}} 11:59 PM</div>
+    <div class="card-footer small text-muted">{{$traducao['footOP']}} {{ date('d-m-Y H-m-s') }}</div>
 </div>     
 
 </div>
